@@ -40,9 +40,10 @@ export default function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Cinematic gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/55 via-charcoal/35 to-charcoal/75 z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-charcoal/25 via-transparent to-charcoal/10 z-[1]" />
+      {/* Stronger cinematic overlays - radial focus on center for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/50 to-charcoal/80 z-[1]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(44,44,44,0.55)_0%,transparent_70%)] z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-charcoal/20 via-transparent to-charcoal/20 z-[1]" />
 
       {/* Content */}
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 text-center pt-16 pb-28">
@@ -51,16 +52,22 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <p className="text-sage-light text-[11px] md:text-xs tracking-[0.35em] uppercase font-light mb-7 md:mb-9">
+          <p className="text-sage-light text-[11px] md:text-xs tracking-[0.35em] uppercase font-light mb-7 md:mb-9 drop-shadow-sm">
             Massage &amp; Skincare &middot; Apex, North Carolina
           </p>
-          <h1 className="font-serif text-ivory text-[2.25rem] sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] leading-[1.1] mb-6 md:mb-8 max-w-3xl mx-auto">
+          <h1
+            className="font-serif text-ivory text-[2.25rem] sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] leading-[1.1] mb-6 md:mb-8 max-w-3xl mx-auto"
+            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.4), 0 1px 6px rgba(0,0,0,0.3)" }}
+          >
             Relief starts the moment
             <span className="block mt-1 md:mt-2">
               <em className="font-serif italic text-champagne-light">you walk in</em>
             </span>
           </h1>
-          <p className="text-ivory/65 text-[15px] md:text-base lg:text-lg max-w-md md:max-w-lg mx-auto font-light leading-relaxed mb-10 md:mb-12">
+          <p
+            className="text-ivory/75 text-[15px] md:text-base lg:text-lg max-w-md md:max-w-lg mx-auto font-light leading-relaxed mb-10 md:mb-12"
+            style={{ textShadow: "0 1px 8px rgba(0,0,0,0.3)" }}
+          >
             Therapeutic massage, custom skincare, and restorative care from a team that listens to your body and treats it with intention.
           </p>
         </motion.div>
@@ -71,17 +78,19 @@ export default function HeroSection() {
           transition={{ duration: 0.7, delay: 0.9 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4"
         >
+          {/* Primary CTA - bold, glowing */}
           <a
             href={contactInfo.booking.main}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-sage hover:bg-sage-dark active:bg-sage-dark text-ivory px-9 py-3.5 rounded-full text-[15px] font-light tracking-wide transition-all duration-300 hover:shadow-lg touch-manipulation w-full sm:w-auto sm:min-w-[190px] text-center"
+            className="bg-sage hover:bg-sage-dark active:bg-sage-dark text-ivory px-10 py-4 rounded-full text-[15px] font-normal tracking-wide transition-all duration-300 shadow-[0_4px_24px_rgba(139,158,139,0.3)] hover:shadow-[0_6px_32px_rgba(139,158,139,0.45)] touch-manipulation w-full sm:w-auto sm:min-w-[200px] text-center"
           >
             Book Appointment
           </a>
+          {/* Secondary CTA - frosted glass */}
           <a
             href="#services"
-            className="border border-ivory/25 hover:border-ivory/45 active:border-ivory/45 text-ivory/90 px-9 py-3.5 rounded-full text-[15px] font-light tracking-wide transition-all duration-300 touch-manipulation w-full sm:w-auto sm:min-w-[190px] text-center"
+            className="backdrop-blur-md bg-white/[0.08] hover:bg-white/[0.15] border border-white/20 hover:border-white/35 text-ivory px-10 py-4 rounded-full text-[15px] font-light tracking-wide transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.15)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.2)] touch-manipulation w-full sm:w-auto sm:min-w-[200px] text-center"
           >
             Explore Services
           </a>

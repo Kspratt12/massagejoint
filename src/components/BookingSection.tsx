@@ -24,7 +24,7 @@ export default function BookingSection() {
           <AnimatedSection delay={0.1}>
             <div className="lg:col-span-2 relative rounded-2xl overflow-hidden min-h-[320px] lg:min-h-full">
               <img
-                src="/images/services/custom-facials.png"
+                src="/images/hero/hero.png"
                 alt="Relaxing spa treatment"
                 className="absolute inset-0 w-full h-full object-cover"
               />
