@@ -70,7 +70,7 @@ export default function OwnerSection() {
                       <img
                         src="/images/2021-owner-star.jpg"
                         alt="2021 INDY Week Finalist — Best Massage Therapist in the Triangle"
-                        className="h-16 md:h-20 w-auto mx-auto md:mx-0 rounded"
+                        className="h-16 md:h-20 w-auto mx-auto md:mx-0 mix-blend-multiply"
                       />
                     </div>
                   </div>
