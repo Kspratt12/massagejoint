@@ -1,21 +1,48 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { contactInfo } from "@/data/contact";
 
+const heroImages = [
+  { src: "/images/hero/hero.png", alt: "The Massage Joint treatment room" },
+  { src: "/images/hero/hero2.png", alt: "Massage therapy session" },
+  { src: "/images/hero/hero3.png", alt: "Calming wellness atmosphere" },
+];
+
 export default function HeroSection() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {/* Background Image with cinematic gradient overlay */}
-      <div className="absolute inset-0">
-        <img
-          src="/images/hero/hero.png"
-          alt="The Massage Joint treatment room"
-          className="w-full h-full object-cover scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/30 to-transparent" />
-      </div>
+      {/* Rotating Background Images */}
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={currentImage}
+          initial={{ opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <img
+            src={heroImages[currentImage].src}
+            alt={heroImages[currentImage].alt}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/80 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-charcoal/30 to-transparent z-[1]" />
 
       {/* Content */}
       <div className="relative z-10 max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 text-center pt-20">
@@ -61,12 +88,26 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
+      {/* Image indicators */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+        {heroImages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentImage(i)}
+            className={`w-8 h-[2px] rounded-full transition-all duration-500 touch-manipulation ${
+              i === currentImage ? "bg-ivory/80 w-12" : "bg-ivory/30"
+            }`}
+            aria-label={`Show image ${i + 1}`}
+          />
+        ))}
+      </div>
+
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
