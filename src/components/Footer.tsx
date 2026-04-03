@@ -6,7 +6,7 @@ import { contactInfo } from "@/data/contact";
 export default function Footer() {
   return (
     <footer className="bg-charcoal text-ivory/80">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 py-16 md:py-20">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">

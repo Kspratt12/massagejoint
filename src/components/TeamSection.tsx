@@ -6,16 +6,14 @@ import { teamMembers } from "@/data/team";
 export default function TeamSection() {
   return (
     <section className="py-20 md:py-28 bg-ivory" id="team">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         <AnimatedSection>
-          <div className="text-center mb-14">
-            <p className="text-sage text-xs tracking-[0.25em] uppercase font-light mb-5">
-              Meet Your Therapists
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="section-divider" />
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] text-charcoal mb-3">
               Our Team
             </h2>
-            <p className="text-charcoal/60 text-base font-light max-w-lg mx-auto">
+            <p className="text-charcoal/50 text-[15px] font-light max-w-md mx-auto leading-relaxed">
               Licensed professionals who listen, care, and deliver real results.
             </p>
           </div>

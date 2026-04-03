@@ -16,7 +16,7 @@ export default function FinalCTA() {
         <div className="absolute inset-0 bg-charcoal/75" />
       </div>
 
-      <div className="relative z-10 max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12 text-center">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 text-center">
         <AnimatedSection>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-ivory leading-snug mb-6 max-w-3xl mx-auto">
             Your body has been carrying a lot.

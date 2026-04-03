@@ -63,16 +63,14 @@ const reasons = [
 export default function WhyBookSection() {
   return (
     <section className="py-20 md:py-28 bg-charcoal">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         <AnimatedSection>
-          <div className="text-center mb-14">
-            <p className="text-sage-light text-sm tracking-[0.2em] uppercase font-light mb-4">
-              Why The Massage Joint
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-ivory mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="w-12 h-[1px] bg-sage-light/30 mx-auto mb-6" />
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] text-ivory mb-3">
               Why Clients Book Here
             </h2>
-            <p className="text-ivory/60 text-base md:text-lg font-light max-w-xl mx-auto">
+            <p className="text-ivory/50 text-[15px] font-light max-w-md mx-auto leading-relaxed">
               Real care for real concerns. Here is what brings people through our door.
             </p>
           </div>
@@ -81,7 +79,7 @@ export default function WhyBookSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((reason, i) => (
             <AnimatedSection key={reason.title} delay={i * 0.08}>
-              <div className="bg-charcoal-light/50 border border-ivory/5 rounded-xl p-7 md:p-8 h-full transition-all duration-300 hover:border-ivory/10">
+              <div className="bg-charcoal-light/40 border border-ivory/[0.06] rounded-xl p-6 md:p-7 h-full transition-all duration-300 hover:border-ivory/[0.12] hover:bg-charcoal-light/50">
                 <div className="text-sage-light mb-5">{reason.icon}</div>
                 <h3 className="font-serif text-lg text-ivory mb-3">{reason.title}</h3>
                 <p className="text-ivory/50 text-sm font-light leading-relaxed">

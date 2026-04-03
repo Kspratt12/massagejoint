@@ -6,7 +6,7 @@ import { contactInfo } from "@/data/contact";
 export default function GiftCardSection() {
   return (
     <section className="py-20 md:py-24 bg-linen">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         <AnimatedSection>
           <div className="relative bg-charcoal rounded-2xl overflow-hidden">
             {/* Background pattern */}

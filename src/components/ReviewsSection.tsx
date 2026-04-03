@@ -138,20 +138,21 @@ export default function ReviewsSection() {
 
   return (
     <section className="py-20 md:py-28 bg-ivory" id="reviews">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         <AnimatedSection>
-          <div className="text-center mb-14">
+          <div className="text-center mb-12 md:mb-16">
+            <div className="section-divider" />
             <div className="flex items-center justify-center gap-3 mb-4">
-              <GoogleLogo className="w-8 h-8" />
+              <GoogleLogo className="w-7 h-7" />
               <div className="flex items-center gap-2">
                 <StarRating rating={5} />
-                <span className="text-charcoal font-medium text-lg">{reviewStats.averageRating}</span>
+                <span className="text-charcoal font-medium">{reviewStats.averageRating}</span>
               </div>
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal mb-2">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] text-charcoal mb-2">
               What Our Clients Say
             </h2>
-            <p className="text-charcoal/60 text-base font-light">
+            <p className="text-charcoal/50 text-[15px] font-light">
               {reviewStats.totalReviews} reviews on Google
             </p>
           </div>

@@ -6,14 +6,12 @@ import { contactInfo } from "@/data/contact";
 export default function ContactSection() {
   return (
     <section className="py-20 md:py-28 bg-warm-white" id="contact">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         <AnimatedSection>
-          <div className="text-center mb-14">
-            <p className="text-sage text-sm tracking-[0.2em] uppercase font-light mb-4">
-              Visit Us
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal mb-4">
-              Location & Contact
+          <div className="text-center mb-12 md:mb-14">
+            <div className="section-divider" />
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] text-charcoal mb-3">
+              Location &amp; Contact
             </h2>
           </div>
         </AnimatedSection>

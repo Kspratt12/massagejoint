@@ -13,16 +13,14 @@ export default function ServiceMenu() {
 
   return (
     <section className="py-20 md:py-28 bg-warm-white" id="services">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-8 lg:px-12">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         <AnimatedSection>
-          <div className="text-center mb-14">
-            <p className="text-sage text-sm tracking-[0.2em] uppercase font-light mb-4">
-              Full Menu
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal mb-4">
-              Services & Pricing
+          <div className="text-center mb-12 md:mb-14">
+            <div className="section-divider" />
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] text-charcoal mb-3">
+              Services &amp; Pricing
             </h2>
-            <p className="text-charcoal/60 text-base md:text-lg font-light max-w-xl mx-auto">
+            <p className="text-charcoal/50 text-[15px] font-light max-w-md mx-auto leading-relaxed">
               Every treatment is personalized. Every price is transparent.
             </p>
           </div>
@@ -35,10 +33,10 @@ export default function ServiceMenu() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-5 py-2.5 rounded-full text-sm font-light tracking-wide transition-all duration-300 touch-manipulation ${
+                className={`px-5 py-2 rounded-full text-[13px] font-light tracking-wide transition-all duration-300 touch-manipulation ${
                   activeCategory === cat.id
-                    ? "bg-charcoal text-ivory"
-                    : "bg-fog/60 text-charcoal/70 hover:bg-fog"
+                    ? "bg-charcoal text-ivory shadow-sm"
+                    : "bg-fog/50 text-charcoal/60 hover:bg-fog hover:text-charcoal/80"
                 }`}
               >
                 {cat.category}
