@@ -54,7 +54,7 @@ export default function TrustBar() {
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
             {trustSignals.map((signal, i) => (
               <div
-                key={i}
+                key={signal.label}
                 className="flex items-center gap-2 text-ivory/55"
               >
                 <span className="text-sage-light/70">{signal.icon}</span>

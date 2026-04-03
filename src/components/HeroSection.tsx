@@ -100,9 +100,9 @@ export default function HeroSection() {
       {/* Image indicators + scroll combined at bottom */}
       <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-5">
         <div className="flex gap-2">
-          {heroImages.map((_, i) => (
+          {heroImages.map((img, i) => (
             <button
-              key={i}
+              key={img.src}
               onClick={() => setCurrentImage(i)}
               className={`h-[2px] rounded-full transition-all duration-500 touch-manipulation ${
                 i === currentImage ? "bg-ivory/70 w-10" : "bg-ivory/25 w-6"

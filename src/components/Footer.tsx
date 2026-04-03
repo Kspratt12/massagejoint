@@ -6,7 +6,7 @@ import { contactInfo } from "@/data/contact";
 export default function Footer() {
   return (
     <footer className="bg-charcoal text-ivory/80">
-      {/* Location Photo Banner */}
+      {/* Location Photo Banner — uncomment when /images/location.webp is added
       <div className="relative h-48 md:h-64 overflow-hidden">
         <img
           src="/images/location.webp"
@@ -23,6 +23,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
+      */}
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
