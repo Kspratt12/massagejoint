@@ -8,15 +8,19 @@ export default function GiftCardSection() {
     <section className="py-14 md:py-18 bg-linen">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         <AnimatedSection>
-          <div className="relative bg-charcoal rounded-2xl overflow-hidden">
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-0 right-0 w-96 h-96 bg-sage rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
-              <div className="absolute bottom-0 left-0 w-72 h-72 bg-champagne rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
+          <div className="relative rounded-2xl overflow-hidden">
+            {/* Background photo */}
+            <div className="absolute inset-0">
+              <img
+                src="/images/services/custom-facials.png"
+                alt=""
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-charcoal/80" />
             </div>
 
-            <div className="relative px-8 py-14 md:px-16 md:py-20 text-center">
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-ivory/10 flex items-center justify-center ring-1 ring-ivory/[0.08]">
+            <div className="relative z-[3] px-8 py-14 md:px-16 md:py-18 text-center">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-ivory/10 backdrop-blur-sm flex items-center justify-center ring-1 ring-ivory/[0.08]">
                 <img
                   src="/images/logo.png"
                   alt="The Massage Joint"
@@ -26,7 +30,7 @@ export default function GiftCardSection() {
               <h2 className="font-serif text-3xl md:text-4xl text-ivory mb-4">
                 Give the Gift of Relief
               </h2>
-              <p className="text-ivory/60 text-base md:text-lg font-light max-w-lg mx-auto mb-8">
+              <p className="text-ivory/55 text-base md:text-lg font-light max-w-lg mx-auto mb-8">
                 Share the experience of real rest and recovery. E-gift cards are available for any service and any amount.
               </p>
               <a
