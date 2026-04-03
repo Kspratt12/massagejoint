@@ -108,3 +108,55 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.4;
   margin: 0 auto 1.5rem;
 }
+
+/* Cinematic rain effect */
+@keyframes rain-fall {
+  0% { transform: translateY(-100%) translateX(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.3; }
+  100% { transform: translateY(100vh) translateX(-20px); opacity: 0; }
+}
+
+@keyframes rain-fall-2 {
+  0% { transform: translateY(-100%) translateX(0); opacity: 0; }
+  10% { opacity: 0.4; }
+  90% { opacity: 0.2; }
+  100% { transform: translateY(100vh) translateX(-10px); opacity: 0; }
+}
+
+.rain-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.rain-drop {
+  position: absolute;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent);
+  animation: rain-fall linear infinite;
+}
+
+.rain-drop-thin {
+  position: absolute;
+  width: 0.5px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent);
+  animation: rain-fall-2 linear infinite;
+}
+
+/* Mist/fog ambient effect */
+@keyframes mist-drift {
+  0% { transform: translateX(-10%) scaleX(1); opacity: 0; }
+  50% { opacity: 0.08; }
+  100% { transform: translateX(10%) scaleX(1.2); opacity: 0; }
+}
+
+.mist-layer {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.15) 0%, transparent 70%);
+  animation: mist-drift 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}

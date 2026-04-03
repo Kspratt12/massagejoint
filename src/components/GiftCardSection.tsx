@@ -5,7 +5,7 @@ import { contactInfo } from "@/data/contact";
 
 export default function GiftCardSection() {
   return (
-    <section className="py-20 md:py-24 bg-linen">
+    <section className="py-14 md:py-18 bg-linen">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         <AnimatedSection>
           <div className="relative bg-charcoal rounded-2xl overflow-hidden">
@@ -16,10 +16,12 @@ export default function GiftCardSection() {
             </div>
 
             <div className="relative px-8 py-14 md:px-16 md:py-20 text-center">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-champagne/20 flex items-center justify-center">
-                <svg className="w-7 h-7 text-champagne-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-                </svg>
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-ivory/10 flex items-center justify-center ring-1 ring-ivory/[0.08]">
+                <img
+                  src="/images/logo.png"
+                  alt="The Massage Joint"
+                  className="w-12 h-12 object-contain"
+                />
               </div>
               <h2 className="font-serif text-3xl md:text-4xl text-ivory mb-4">
                 Give the Gift of Relief

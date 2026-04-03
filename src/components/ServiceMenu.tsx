@@ -12,7 +12,7 @@ export default function ServiceMenu() {
   const currentCategory = serviceCategories.find((c) => c.id === activeCategory);
 
   return (
-    <section className="py-20 md:py-28 bg-warm-white" id="services">
+    <section className="py-20 md:py-24 bg-warm-white" id="services">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         <AnimatedSection>
           <div className="text-center mb-12 md:mb-14">
@@ -28,7 +28,7 @@ export default function ServiceMenu() {
 
         {/* Category Tabs */}
         <AnimatedSection delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-2.5 mb-10">
             {serviceCategories.map((cat) => (
               <button
                 key={cat.id}
@@ -50,52 +50,59 @@ export default function ServiceMenu() {
           {currentCategory && (
             <motion.div
               key={currentCategory.id}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.4 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35 }}
               className="max-w-4xl mx-auto"
             >
               {currentCategory.description && (
-                <p className="text-center text-charcoal/60 text-sm font-light mb-8 max-w-lg mx-auto">
+                <p className="text-center text-charcoal/50 text-[13px] font-light mb-8 max-w-lg mx-auto">
                   {currentCategory.description}
                 </p>
               )}
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {currentCategory.services.map((service) => (
                   <div
                     key={service.name}
-                    className="bg-ivory rounded-xl p-6 md:p-8 border border-fog/50 hover:border-fog transition-colors duration-300"
+                    className="bg-ivory rounded-xl p-5 md:p-7 border border-fog/40 hover:border-fog/70 transition-all duration-300"
                   >
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                       <div className="flex-1">
-                        <h3 className="font-serif text-lg md:text-xl text-charcoal mb-2">
+                        <h3 className="font-serif text-lg text-charcoal mb-1.5">
                           {service.name}
                         </h3>
-                        <p className="text-charcoal/60 text-sm font-light leading-relaxed mb-1">
+                        <p className="text-charcoal/50 text-[13px] font-light leading-relaxed">
                           {service.description}
                         </p>
                         {service.note && (
-                          <p className="text-charcoal/50 text-xs font-light leading-relaxed mt-2 italic">
+                          <p className="text-charcoal/40 text-[12px] font-light leading-relaxed mt-2 italic">
                             {service.note}
                           </p>
                         )}
                       </div>
 
-                      <div className="flex flex-wrap md:flex-col gap-3 md:gap-2 md:items-end md:min-w-[180px]">
+                      {/* Clickable price buttons that link to booking */}
+                      <div className="flex flex-wrap md:flex-col gap-2 md:items-end md:min-w-[190px]">
                         {service.prices.map((p, i) => (
-                          <div
+                          <a
                             key={i}
-                            className="flex items-center gap-3 bg-fog/40 rounded-lg px-4 py-2"
+                            href={contactInfo.booking.main}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center justify-between gap-3 bg-fog/30 hover:bg-sage/10 rounded-lg px-4 py-2 transition-all duration-300 touch-manipulation cursor-pointer border border-transparent hover:border-sage/20"
                           >
-                            <span className="text-xs text-charcoal/50 font-light min-w-[80px]">
+                            <span className="text-[12px] text-charcoal/45 font-light min-w-[70px]">
                               {p.duration}
                             </span>
-                            <span className="text-sm text-charcoal font-medium">
+                            <span className="text-[14px] text-charcoal group-hover:text-sage-dark font-medium transition-colors">
                               {p.price}
                             </span>
-                          </div>
+                            <svg className="w-3 h-3 text-charcoal/0 group-hover:text-sage transition-all duration-300 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                          </a>
                         ))}
                       </div>
                     </div>
@@ -106,32 +113,46 @@ export default function ServiceMenu() {
           )}
         </AnimatePresence>
 
-        {/* Chair Massage & Events */}
-        <AnimatedSection delay={0.2}>
-          <div className="max-w-4xl mx-auto mt-12 bg-charcoal rounded-2xl p-8 md:p-10 text-center">
-            <h3 className="font-serif text-xl md:text-2xl text-ivory mb-3">
-              {chairMassageInfo.title}
-            </h3>
-            <p className="text-ivory/60 text-sm font-light mb-2">
-              {chairMassageInfo.services.join(" · ")}
-            </p>
-            <p className="text-ivory/50 text-sm font-light mb-5">
-              {chairMassageInfo.cta}
-            </p>
-            <a
-              href={`mailto:${contactInfo.email}`}
-              className="inline-flex bg-sage hover:bg-sage-dark text-ivory px-8 py-3 rounded-full text-sm font-light tracking-wide transition-colors duration-300"
-            >
-              Get a Quote
-            </a>
+        {/* Chair Massage & Events - with background image */}
+        <AnimatedSection delay={0.15}>
+          <div className="max-w-4xl mx-auto mt-10 rounded-2xl overflow-hidden relative">
+            {/* Background image */}
+            <div className="absolute inset-0">
+              <img
+                src="/images/services/double-loyalty-points.png"
+                alt="Chair massage and events"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-charcoal/80" />
+            </div>
+
+            <div className="relative p-8 md:p-10 lg:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="font-serif text-xl md:text-2xl text-ivory mb-2">
+                  {chairMassageInfo.title}
+                </h3>
+                <p className="text-ivory/55 text-sm font-light mb-1">
+                  {chairMassageInfo.services.join(" · ")}
+                </p>
+                <p className="text-ivory/40 text-[13px] font-light">
+                  {chairMassageInfo.cta}
+                </p>
+              </div>
+              <a
+                href={`mailto:${contactInfo.email}`}
+                className="inline-flex bg-sage hover:bg-sage-dark text-ivory px-8 py-3 rounded-full text-sm font-light tracking-wide transition-colors duration-300 touch-manipulation whitespace-nowrap"
+              >
+                Get a Quote
+              </a>
+            </div>
           </div>
         </AnimatedSection>
 
-        {/* Cancellation Policy */}
-        <AnimatedSection delay={0.25}>
-          <div className="max-w-3xl mx-auto mt-8 text-center">
-            <p className="text-charcoal/40 text-xs font-light leading-relaxed">
-              <span className="font-medium text-charcoal/50">Cancellation Policy:</span>{" "}
+        {/* Cancellation Policy - tighter spacing */}
+        <AnimatedSection delay={0.2}>
+          <div className="max-w-3xl mx-auto mt-6 text-center">
+            <p className="text-charcoal/35 text-[11px] font-light leading-relaxed">
+              <span className="font-medium text-charcoal/45">Cancellation Policy:</span>{" "}
               {cancellationPolicy.text} {cancellationPolicy.contact}
             </p>
           </div>

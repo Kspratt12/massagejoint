@@ -6,8 +6,8 @@ import { contactInfo } from "@/data/contact";
 export default function Footer() {
   return (
     <footer className="bg-charcoal text-ivory/80">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Logo className="h-10 w-auto mb-5" variant="light" />
@@ -111,7 +111,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-ivory/10 mt-14 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-ivory/10 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-ivory/40">
             &copy; {new Date().getFullYear()} {contactInfo.businessName}. All rights reserved.
           </p>

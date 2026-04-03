@@ -137,7 +137,7 @@ export default function ReviewsSection() {
   const displayedReviews = showAll ? reviews : reviews.slice(0, 6);
 
   return (
-    <section className="py-20 md:py-28 bg-ivory" id="reviews">
+    <section className="py-16 md:py-20 bg-ivory" id="reviews">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
         <AnimatedSection>
           <div className="text-center mb-12 md:mb-16">
