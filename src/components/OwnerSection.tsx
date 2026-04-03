@@ -66,11 +66,11 @@ export default function OwnerSection() {
                     </div>
 
                     {/* IndyWeek Badge */}
-                    <div className="mt-5">
+                    <div className="mt-5 bg-white rounded-lg inline-block p-2 mx-auto md:mx-0">
                       <img
                         src="/images/2021-owner-star.jpg"
                         alt="2021 INDY Week Finalist — Best Massage Therapist in the Triangle"
-                        className="h-16 md:h-20 w-auto mx-auto md:mx-0 mix-blend-multiply"
+                        className="h-14 md:h-16 w-auto"
                       />
                     </div>
                   </div>
