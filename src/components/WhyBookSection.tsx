@@ -98,7 +98,7 @@ export default function WhyBookSection() {
               href={contactInfo.booking.main}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex bg-sage hover:bg-sage-dark text-ivory px-10 py-4 rounded-full text-base font-light tracking-wider transition-all duration-300"
+              className="inline-flex bg-sage hover:bg-sage-dark active:bg-sage-dark text-ivory px-10 py-4 rounded-full text-base font-light tracking-wider transition-all duration-300 touch-manipulation"
             >
               Book Your Session
             </a>

@@ -1,40 +1,86 @@
 "use client";
 
+import { useRef, useState, useEffect } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { contactInfo } from "@/data/contact";
 
 const instagramReels = [
   {
     id: "DF3pMz1v0Xd",
-    embedUrl: "https://www.instagram.com/reel/DF3pMz1v0Xd/embed",
     caption: "Behind the scenes at The Massage Joint",
   },
   {
     id: "DKZ74XAxJ9u",
-    embedUrl: "https://www.instagram.com/reel/DKZ74XAxJ9u/embed",
     caption: "Treatment highlights",
   },
   {
     id: "DVkRMvVjeuz",
-    embedUrl: "https://www.instagram.com/reel/DVkRMvVjeuz/embed",
     caption: "Wellness moments",
   },
   {
     id: "DVmxW8eDIpz",
-    embedUrl: "https://www.instagram.com/reel/DVmxW8eDIpz/embed",
     caption: "Emily Eva Esthetics",
+    account: "emilyevaesthetics",
   },
   {
     id: "DUzRA4djZ28",
-    embedUrl: "https://www.instagram.com/reel/DUzRA4djZ28/embed",
     caption: "Relaxation at its finest",
   },
   {
     id: "DVFcOKsDUTF",
-    embedUrl: "https://www.instagram.com/reel/DVFcOKsDUTF/embed",
     caption: "Skincare expertise",
   },
 ];
+
+function ReelEmbed({ reel }: { reel: (typeof instagramReels)[number] }) {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [loaded, setLoaded] = useState(false);
+  const account = reel.account || "themassagejointapex";
+  const reelUrl = `https://www.instagram.com/${account}/reel/${reel.id}/`;
+  const embedUrl = `https://www.instagram.com/reel/${reel.id}/embed/`;
+
+  return (
+    <div className="aspect-[9/16] rounded-xl overflow-hidden bg-fog relative group">
+      {/* The actual interactive iframe embed - users can play, hear, mute inside it */}
+      <iframe
+        ref={iframeRef}
+        src={embedUrl}
+        className="w-full h-full border-0"
+        frameBorder="0"
+        scrolling="no"
+        allowFullScreen
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share; fullscreen"
+        title={reel.caption}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+      />
+
+      {/* Loading skeleton */}
+      {!loaded && (
+        <div className="absolute inset-0 bg-fog flex flex-col items-center justify-center gap-3">
+          <svg className="w-8 h-8 text-sage/40 animate-pulse" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z" />
+          </svg>
+          <span className="text-xs text-charcoal/30 font-light">Loading reel...</span>
+        </div>
+      )}
+
+      {/* Open in Instagram link at bottom */}
+      <a
+        href={reelUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal/70 to-transparent p-3 pt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2"
+        aria-label={`Open ${reel.caption} on Instagram`}
+      >
+        <svg className="w-4 h-4 text-ivory" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z" />
+        </svg>
+        <span className="text-ivory text-xs font-light">View on Instagram</span>
+      </a>
+    </div>
+  );
+}
 
 export default function InstagramSection() {
   return (
@@ -64,38 +110,31 @@ export default function InstagramSection() {
           </div>
         </AnimatedSection>
 
-        {/* Instagram Reels Grid */}
+        {/* Instagram Reels Grid - fully interactive embeds */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {instagramReels.map((reel, i) => (
             <AnimatedSection key={reel.id} delay={i * 0.05}>
-              <a
-                href={`https://www.instagram.com/reel/${reel.id}/`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block aspect-[9/16] rounded-xl overflow-hidden bg-fog group relative"
-              >
-                <iframe
-                  src={reel.embedUrl}
-                  className="w-full h-full pointer-events-none"
-                  frameBorder="0"
-                  scrolling="no"
-                  allowTransparency
-                  title={reel.caption}
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/30 transition-all duration-300 flex items-center justify-center">
-                  <svg
-                    className="w-10 h-10 text-ivory opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </a>
+              <ReelEmbed reel={reel} />
             </AnimatedSection>
           ))}
         </div>
+
+        {/* Follow CTA */}
+        <AnimatedSection delay={0.3}>
+          <div className="text-center mt-10">
+            <a
+              href={contactInfo.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-charcoal hover:bg-charcoal-light text-ivory px-8 py-3 rounded-full text-sm font-light tracking-wide transition-colors duration-300"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z" />
+              </svg>
+              Follow {contactInfo.instagramHandle}
+            </a>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

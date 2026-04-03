@@ -31,7 +31,7 @@ export default function FinalCTA() {
             href={contactInfo.booking.main}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex bg-sage hover:bg-sage-dark text-ivory px-12 py-4 rounded-full text-base md:text-lg font-light tracking-wider transition-all duration-300 hover:shadow-xl"
+            className="inline-flex bg-sage hover:bg-sage-dark active:bg-sage-dark text-ivory px-12 py-4 rounded-full text-base md:text-lg font-light tracking-wider transition-all duration-300 hover:shadow-xl touch-manipulation"
           >
             Book Your Appointment
           </a>

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { featuredServices } from "@/data/services";
 
@@ -25,13 +24,11 @@ export default function FeaturedServices() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {featuredServices.map((service, i) => (
             <AnimatedSection key={service.name} delay={i * 0.08}>
-              <motion.a
+              <a
                 href={service.bookingUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block bg-warm-white rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-lg hover:-translate-y-1 h-full"
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.3 }}
+                className="group block bg-warm-white rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-lg active:shadow-md hover:-translate-y-1 active:translate-y-0 h-full touch-manipulation"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
@@ -57,7 +54,7 @@ export default function FeaturedServices() {
                     </svg>
                   </span>
                 </div>
-              </motion.a>
+              </a>
             </AnimatedSection>
           ))}
         </div>

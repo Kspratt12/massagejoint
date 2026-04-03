@@ -26,7 +26,7 @@ export default function BookingSection() {
               href={contactInfo.booking.newClient}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden bg-charcoal rounded-2xl p-8 md:p-10 text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+              className="group relative overflow-hidden bg-charcoal rounded-2xl p-8 md:p-10 text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-1 active:shadow-lg touch-manipulation"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-sage/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative">
@@ -47,7 +47,7 @@ export default function BookingSection() {
               href={contactInfo.booking.returningClient}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative overflow-hidden bg-charcoal rounded-2xl p-8 md:p-10 text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
+              className="group relative overflow-hidden bg-charcoal rounded-2xl p-8 md:p-10 text-center transition-all duration-500 hover:shadow-xl hover:-translate-y-1 active:shadow-lg touch-manipulation"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-champagne/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative">
@@ -112,7 +112,7 @@ export default function BookingSection() {
                 href={item.href}
                 target={item.label !== "Call or Text" ? "_blank" : undefined}
                 rel={item.label !== "Call or Text" ? "noopener noreferrer" : undefined}
-                className="group flex flex-col items-center gap-3 bg-fog/50 hover:bg-fog rounded-xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-0.5"
+                className="group flex flex-col items-center gap-3 bg-fog/50 hover:bg-fog active:bg-fog rounded-xl p-5 md:p-6 transition-all duration-300 hover:-translate-y-0.5 touch-manipulation"
               >
                 <span className="text-sage group-hover:text-sage-dark transition-colors">
                   {item.icon}

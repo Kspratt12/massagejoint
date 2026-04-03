@@ -31,7 +31,7 @@ export default function GiftCardSection() {
                 href={contactInfo.booking.giftCard}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex bg-champagne hover:bg-champagne-light text-charcoal px-10 py-4 rounded-full text-base font-light tracking-wider transition-all duration-300"
+                className="inline-flex bg-champagne hover:bg-champagne-light active:bg-champagne-light text-charcoal px-10 py-4 rounded-full text-base font-light tracking-wider transition-all duration-300 touch-manipulation"
               >
                 Purchase a Gift Card
               </a>

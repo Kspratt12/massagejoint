@@ -68,7 +68,7 @@ export default function FloatingContact() {
                 target={opt.external ? "_blank" : undefined}
                 rel={opt.external ? "noopener noreferrer" : undefined}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-3 px-5 py-3.5 text-sm text-charcoal font-light hover:bg-fog/50 transition-colors border-b border-fog/30 last:border-0"
+                className="flex items-center gap-3 px-5 py-3.5 text-sm text-charcoal font-light hover:bg-fog/50 active:bg-fog/50 transition-colors border-b border-fog/30 last:border-0 touch-manipulation"
               >
                 <span className="text-sage">{opt.icon}</span>
                 {opt.label}
@@ -80,7 +80,7 @@ export default function FloatingContact() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 ${
+        className={`w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 touch-manipulation ${
           isOpen ? "bg-charcoal rotate-45" : "bg-sage hover:bg-sage-dark"
         }`}
         aria-label="Contact options"

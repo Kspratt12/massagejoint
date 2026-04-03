@@ -35,7 +35,7 @@ export default function ServiceMenu() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-5 py-2.5 rounded-full text-sm font-light tracking-wide transition-all duration-300 ${
+                className={`px-5 py-2.5 rounded-full text-sm font-light tracking-wide transition-all duration-300 touch-manipulation ${
                   activeCategory === cat.id
                     ? "bg-charcoal text-ivory"
                     : "bg-fog/60 text-charcoal/70 hover:bg-fog"
@@ -68,7 +68,7 @@ export default function ServiceMenu() {
                 {currentCategory.services.map((service) => (
                   <div
                     key={service.name}
-                    className="bg-ivory rounded-xl p-6 md:p-8 border border-fog/60"
+                    className="bg-ivory rounded-xl p-6 md:p-8 border border-fog/50 hover:border-fog transition-colors duration-300"
                   >
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                       <div className="flex-1">

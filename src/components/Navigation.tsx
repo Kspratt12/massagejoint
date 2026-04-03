@@ -67,7 +67,7 @@ export default function Navigation() {
                 href={contactInfo.booking.main}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-sage text-ivory text-sm px-6 py-2.5 rounded-full hover:bg-sage-dark transition-colors duration-300 font-light tracking-wide"
+                className="bg-sage text-ivory text-sm px-6 py-2.5 rounded-full hover:bg-sage-dark active:bg-sage-dark transition-colors duration-300 font-light tracking-wide touch-manipulation"
               >
                 Book Now
               </a>
@@ -76,7 +76,7 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center"
+              className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center touch-manipulation"
               aria-label="Toggle menu"
             >
               <div className="flex flex-col gap-1.5">
@@ -135,7 +135,7 @@ export default function Navigation() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mt-4 bg-sage text-ivory text-lg px-10 py-3.5 rounded-full hover:bg-sage-dark transition-colors duration-300 tracking-wide"
+                className="mt-4 bg-sage text-ivory text-lg px-10 py-3.5 rounded-full hover:bg-sage-dark active:bg-sage-dark transition-colors duration-300 tracking-wide touch-manipulation"
               >
                 Book Now
               </motion.a>

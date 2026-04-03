@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import { reviews, reviewStats } from "@/data/reviews";
@@ -29,6 +29,104 @@ function StarRating({ rating }: { rating: number }) {
           <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ))}
+    </div>
+  );
+}
+
+function ReviewVideo({ src, reviewerName }: { src: string; reviewerName: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+  const [showControls, setShowControls] = useState(true);
+
+  const togglePlay = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+      // Auto-hide custom overlay after 2s
+      setTimeout(() => setShowControls(false), 2000);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+      setShowControls(true);
+    }
+  }, []);
+
+  const toggleMute = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  }, []);
+
+  return (
+    <div
+      className="mt-4 rounded-xl overflow-hidden relative bg-charcoal/5 cursor-pointer"
+      onClick={togglePlay}
+      onMouseEnter={() => setShowControls(true)}
+      onTouchStart={() => setShowControls(true)}
+    >
+      <video
+        ref={videoRef}
+        src={src}
+        muted={isMuted}
+        playsInline
+        preload="metadata"
+        className="w-full rounded-xl"
+        style={{ maxHeight: "240px", objectFit: "cover" }}
+        onEnded={() => { setIsPlaying(false); setShowControls(true); }}
+        onPause={() => { setIsPlaying(false); setShowControls(true); }}
+        onPlay={() => setIsPlaying(true)}
+        aria-label={`Video review by ${reviewerName}`}
+      >
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Play/Pause overlay */}
+      <div
+        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+          showControls || !isPlaying ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        {!isPlaying && (
+          <div className="w-14 h-14 rounded-full bg-charcoal/60 backdrop-blur-sm flex items-center justify-center">
+            <svg className="w-6 h-6 text-ivory ml-1" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        )}
+      </div>
+
+      {/* Mute/Unmute button - always accessible */}
+      <button
+        onClick={toggleMute}
+        className={`absolute bottom-3 right-3 w-9 h-9 rounded-full bg-charcoal/60 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${
+          isPlaying || showControls ? "opacity-100" : "opacity-0"
+        }`}
+        aria-label={isMuted ? "Unmute video" : "Mute video"}
+      >
+        {isMuted ? (
+          <svg className="w-4 h-4 text-ivory" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+          </svg>
+        ) : (
+          <svg className="w-4 h-4 text-ivory" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+          </svg>
+        )}
+      </button>
+
+      {/* Video label */}
+      <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-charcoal/50 backdrop-blur-sm px-2.5 py-1 rounded-full">
+        <svg className="w-3 h-3 text-ivory" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        <span className="text-[10px] text-ivory font-light">Video Review</span>
+      </div>
     </div>
   );
 }
@@ -108,7 +206,8 @@ export default function ReviewsSection() {
                       <button
                         key={j}
                         onClick={() => setLightboxImage(photo)}
-                        className="w-16 h-16 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
+                        className="w-16 h-16 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 active:opacity-70 transition-opacity touch-manipulation"
+                        aria-label={`View photo ${j + 1} by ${review.name}`}
                       >
                         <img
                           src={photo}
@@ -120,19 +219,9 @@ export default function ReviewsSection() {
                   </div>
                 )}
 
-                {/* Video */}
+                {/* Video - fully iPhone compatible */}
                 {review.hasVideo && review.videoSrc && (
-                  <div className="mt-4 rounded-lg overflow-hidden">
-                    <video
-                      src={review.videoSrc}
-                      controls
-                      preload="metadata"
-                      className="w-full rounded-lg"
-                      style={{ maxHeight: "200px" }}
-                    >
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
+                  <ReviewVideo src={review.videoSrc} reviewerName={review.name} />
                 )}
               </div>
             </AnimatedSection>
@@ -145,7 +234,7 @@ export default function ReviewsSection() {
             <div className="text-center mt-10">
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="text-sage hover:text-sage-dark text-sm font-light tracking-wide underline underline-offset-4 transition-colors duration-300"
+                className="text-sage hover:text-sage-dark text-sm font-light tracking-wide underline underline-offset-4 transition-colors duration-300 touch-manipulation py-2 px-4"
               >
                 {showAll ? "Show fewer reviews" : `Show all ${reviews.length} reviews`}
               </button>
@@ -161,7 +250,7 @@ export default function ReviewsSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-charcoal/90 flex items-center justify-center p-4 cursor-pointer"
+            className="fixed inset-0 z-50 bg-charcoal/90 flex items-center justify-center p-4"
             onClick={() => setLightboxImage(null)}
           >
             <motion.img
@@ -173,10 +262,13 @@ export default function ReviewsSection() {
               className="max-w-full max-h-[85vh] rounded-lg shadow-2xl"
             />
             <button
-              className="absolute top-6 right-6 text-ivory/80 hover:text-ivory text-2xl"
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-ivory/20 backdrop-blur-sm flex items-center justify-center text-ivory hover:bg-ivory/30 transition-colors touch-manipulation"
               onClick={() => setLightboxImage(null)}
+              aria-label="Close image"
             >
-              &times;
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
           </motion.div>
         )}
