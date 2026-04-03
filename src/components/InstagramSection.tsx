@@ -25,23 +25,23 @@ const instagramReels: ReelData[] = [
   {
     id: "DVkRMvVjeuz",
     caption: "Wellness moments",
-    // Drop the downloaded mp4 here as /videos/reel-3.mp4 to use native video
+    localVideo: "/videos/reel-3.mp4",
   },
   {
     id: "DVmxW8eDIpz",
     caption: "Emily Eva Esthetics",
     account: "emilyevaesthetics",
-    // Drop the downloaded mp4 here as /videos/reel-4.mp4 to use native video
+    localVideo: "/videos/reel-4.mp4",
   },
   {
     id: "DUzRA4djZ28",
     caption: "Relaxation at its finest",
-    // Drop the downloaded mp4 here as /videos/reel-5.mp4 to use native video
+    localVideo: "/videos/reel-5.mp4",
   },
   {
     id: "DVFcOKsDUTF",
     caption: "Skincare expertise",
-    // Drop the downloaded mp4 here as /videos/reel-6.mp4 to use native video
+    localVideo: "/videos/reel-6.mp4",
   },
 ];
 
