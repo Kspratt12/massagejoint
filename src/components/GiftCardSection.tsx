@@ -12,8 +12,8 @@ export default function GiftCardSection() {
             {/* Background photo */}
             <div className="absolute inset-0">
               <img
-                src="/images/services/custom-facials.png"
-                alt=""
+                src="/images/hero/hero.png"
+                alt="Custom facial treatment at The Massage Joint"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-charcoal/80" />

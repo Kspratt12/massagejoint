@@ -12,7 +12,7 @@ export default function AboutSection() {
             <div className="relative max-w-lg mx-auto lg:max-w-none">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden">
                 <img
-                  src="/images/hero/hero2.png"
+                  src="/images/services/scalp-facials.png"
                   alt="Inside The Massage Joint treatment space"
                   className="w-full h-full object-cover"
                 />
@@ -60,6 +60,7 @@ export default function AboutSection() {
             </div>
           </AnimatedSection>
         </div>
+
       </div>
     </section>
   );

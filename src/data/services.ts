@@ -213,14 +213,14 @@ export const featuredServices = [
     name: "Deep Tissue Massage",
     benefit: "Targeted relief for chronic tension and pain through slow, firm pressure on deeper muscle layers.",
     startingPrice: "From $50",
-    image: "/images/hero/hero2.png",
+    image: "/images/services/cold-stones.png",
     bookingUrl: "https://themassagejointapex.clinicsense.com/book",
   },
   {
     name: "Swedish Massage",
     benefit: "Classic relaxation therapy using gentle, flowing strokes to ease stress and restore calm.",
     startingPrice: "From $45",
-    image: "/images/hero/hero3.png",
+    image: "/images/services/himalayan-stones.png",
     bookingUrl: "https://themassagejointapex.clinicsense.com/book",
   },
   {

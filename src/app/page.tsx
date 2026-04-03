@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
 import BookingSection from "@/components/BookingSection";
 import AboutSection from "@/components/AboutSection";
+import OwnerSection from "@/components/OwnerSection";
 import FeaturedServices from "@/components/FeaturedServices";
 import ServiceMenu from "@/components/ServiceMenu";
 import TeamSection from "@/components/TeamSection";
@@ -26,6 +27,7 @@ export default function HomePage() {
         <TrustBar />
         <BookingSection />
         <AboutSection />
+        <OwnerSection />
         <FeaturedServices />
         <ServiceMenu />
         <TeamSection />

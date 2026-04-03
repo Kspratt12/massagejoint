@@ -7,7 +7,6 @@ export const contactInfo = {
     zip: "27502",
     full: "106 W Chatham St, Apex, NC 27502",
     mapUrl: "https://www.google.com/maps/place/106+W+Chatham+St,+Apex,+NC+27502",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.5!2d-78.8503!3d35.7327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac8f1b2e5c8b1d%3A0x1234567890abcdef!2s106%20W%20Chatham%20St%2C%20Apex%2C%20NC%2027502!5e0!3m2!1sen!2sus!4v1234567890",
   },
   phone: "(919) 624-9864",
   phoneRaw: "9196249864",

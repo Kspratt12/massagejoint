@@ -6,6 +6,24 @@ import { contactInfo } from "@/data/contact";
 export default function Footer() {
   return (
     <footer className="bg-charcoal text-ivory/80">
+      {/* Location Photo Banner */}
+      <div className="relative h-48 md:h-64 overflow-hidden">
+        <img
+          src="/images/location.webp"
+          alt="The Massage Joint storefront in downtown Apex, NC"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/40 to-transparent" />
+        <div className="absolute bottom-6 left-0 right-0 text-center">
+          <p className="text-ivory/90 font-serif text-lg md:text-xl">
+            Find Us in Downtown Apex
+          </p>
+          <p className="text-ivory/50 text-sm font-light mt-1">
+            {contactInfo.address.full}
+          </p>
+        </div>
+      </div>
+
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}

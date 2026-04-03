@@ -9,7 +9,7 @@ export default function FinalCTA() {
       {/* Background */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero/hero3.png"
+          src="/images/services/facial.png"
           alt="Calming wellness atmosphere"
           className="w-full h-full object-cover"
         />

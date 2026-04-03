@@ -48,7 +48,7 @@ export default function BookingSection() {
                   className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-lg hover:-translate-y-0.5 touch-manipulation"
                 >
                   <div className="absolute inset-0">
-                    <img src="/images/hero/hero2.png" alt="" className="w-full h-full object-cover" />
+                    <img src="/images/hero/hero3.png" alt="Spa treatment for new clients" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-charcoal/75 group-hover:bg-charcoal/65 transition-all duration-500" />
                   </div>
                   <div className="relative p-6 md:p-7">
@@ -75,7 +75,7 @@ export default function BookingSection() {
                   className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:shadow-lg hover:-translate-y-0.5 touch-manipulation"
                 >
                   <div className="absolute inset-0">
-                    <img src="/images/hero/hero3.png" alt="" className="w-full h-full object-cover" />
+                    <img src="/images/services/himalayan-stones.png" alt="Relaxing massage for returning clients" className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-charcoal/75 group-hover:bg-charcoal/65 transition-all duration-500" />
                   </div>
                   <div className="relative p-6 md:p-7">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.themassagejointapex.com"),
   title: "The Massage Joint | Massage & Skincare in Apex, NC",
   description:
     "Licensed massage therapy and professional skincare in downtown Apex, North Carolina. Deep tissue, Swedish, prenatal massage, custom facials, dermaplaning, and more. Book online today.",
@@ -22,6 +23,14 @@ export const metadata: Metadata = {
     siteName: "The Massage Joint",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/hero/hero.png",
+        width: 1200,
+        height: 630,
+        alt: "The Massage Joint — Massage & Skincare in Apex, NC",
+      },
+    ],
   },
 };
 

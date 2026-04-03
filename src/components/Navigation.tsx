@@ -6,6 +6,7 @@ import Logo from "./Logo";
 import { contactInfo } from "@/data/contact";
 
 const navLinks = [
+  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Team", href: "#team" },
   { label: "Reviews", href: "#reviews" },
@@ -43,7 +44,7 @@ export default function Navigation() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-10 lg:px-14">
           <div className="flex items-center justify-between h-16 md:h-[72px]">
             {/* Logo */}
-            <a href="#" className="flex-shrink-0 transition-opacity duration-300 hover:opacity-80">
+            <a href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex-shrink-0 transition-opacity duration-300 hover:opacity-80 cursor-pointer">
               <Logo variant={isScrolled ? "dark" : "light"} />
             </a>
 

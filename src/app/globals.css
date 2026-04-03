@@ -100,6 +100,10 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--color-stone-dark);
 }
 
+/* Hide scrollbar for horizontal scroll tabs */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* Section divider utility */
 .section-divider {
   width: 48px;

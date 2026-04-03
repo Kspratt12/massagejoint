@@ -28,12 +28,12 @@ export default function ServiceMenu() {
 
         {/* Category Tabs */}
         <AnimatedSection delay={0.1}>
-          <div className="flex flex-wrap justify-center gap-2 md:gap-2.5 mb-10">
+          <div className="flex overflow-x-auto no-scrollbar justify-start md:justify-center gap-2 md:gap-2.5 mb-10 -mx-6 px-6 md:mx-0 md:px-0">
             {serviceCategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-5 py-2 rounded-full text-[13px] font-light tracking-wide transition-all duration-300 touch-manipulation ${
+                className={`px-5 py-2 rounded-full text-[13px] font-light tracking-wide transition-all duration-300 touch-manipulation whitespace-nowrap flex-shrink-0 ${
                   activeCategory === cat.id
                     ? "bg-charcoal text-ivory shadow-sm"
                     : "bg-fog/50 text-charcoal/60 hover:bg-fog hover:text-charcoal/80"
